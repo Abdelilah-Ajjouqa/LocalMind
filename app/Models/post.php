@@ -26,6 +26,7 @@ class Post extends Model
 
     public static function getPostByTitle($title){
         $post = Post::where('title', $title)->first();
+
         if (!$post) {
             return response()->json(['message' => 'Post not found'], 404);
         }
@@ -33,10 +34,6 @@ class Post extends Model
     }
 
     public static function createPost($title, $content, $location){
-        if (empty($title) || empty($content) || empty($location)) {
-            return response()->json(['error' => 'All fields are required'], 400);
-        }
-
         $post = new Post();
         $post->title = $title;
         $post->content = $content;
@@ -44,8 +41,4 @@ class Post extends Model
         $post->save();
         return $post;
     }
-        $post->location = $location;
-        $post->save();
-        return $post;
-
 }
