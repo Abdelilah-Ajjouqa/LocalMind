@@ -18,6 +18,7 @@ class Post extends Model
 
     public static function getPostById($id){
         $post = Post::find($id);
+
         if (!$post) {
             return response()->json(['error' => 'Post not found'], 404);
         }
