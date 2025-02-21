@@ -14,11 +14,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        // $posts = Post::getAllPosts();
+        $posts = Post::getAllPosts();
 
-        // if($posts == null){
-        //     return "No posts found";
-        // }
+        if($posts == null){
+            return "No posts found";
+        }
         // return view('home', ['posts' => $posts]);
 
         return Post::all();
