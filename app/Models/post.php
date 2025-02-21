@@ -42,4 +42,9 @@ class Post extends Model
         $post->save();
         return $post;
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+        // return $this->get_class_methods(Comment::class);
+    }
 }
